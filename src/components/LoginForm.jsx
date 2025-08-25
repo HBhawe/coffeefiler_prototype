@@ -17,8 +17,8 @@ export function LoginForm({
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(username, password);
-
+    
+    // ONLY FOR TESTING PURPOSES
     if (username === "harshal" && password === "1234") {
       handleAuthentication(true);
     }
