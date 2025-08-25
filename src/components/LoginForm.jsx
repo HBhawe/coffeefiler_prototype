@@ -21,6 +21,7 @@ export function LoginForm({
     // ONLY FOR TESTING PURPOSES
     if (username === "harshal" && password === "1234") {
       handleAuthentication(true);
+      handleSetPassword("");
     }
   }
 
