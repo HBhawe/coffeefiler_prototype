@@ -1,8 +1,9 @@
-import { useState } from "react";
+import {useState} from "react";
 import "../App.css";
-import { LoginForm } from "./LoginForm.jsx";
-import { AppName } from "./AppName.jsx";
-import { AppLogin } from "./AppLogin.jsx";
+import {LoginForm} from "./LoginForm.jsx";
+import {AppName} from "./AppName.jsx";
+import {AppLogin} from "./AppLogin.jsx";
+import {NavBar} from "./NavBar.jsx";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -26,29 +27,6 @@ function App() {
         />
       )}
     </>
-  );
-}
-
-function NavBar({ username, isAuthenticated }) {
-  return (
-    <div className="navbar">
-      <div className="title">
-        <span>CoffeeFiler</span>
-      </div>
-      <div className="function-buttons">
-        <button className="navbar-toggler" type="button">
-          Register
-        </button>
-        <button className="navbar-toggler" type="button">
-          Login
-        </button>
-        {isAuthenticated ? (
-          <button className="navbar-toggler" type="button">
-            {username}'s profile
-          </button>
-        ) : null}
-      </div>
-    </div>
   );
 }
 
