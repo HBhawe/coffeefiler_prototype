@@ -5,6 +5,25 @@ import {AppName} from "./AppName.jsx";
 import {AppLogin} from "./AppLogin.jsx";
 import {NavBar} from "./NavBar.jsx";
 
+
+const coffees = [
+    {
+        id: 1,
+        name:"Tanat abc",
+        price:'399kr'
+    },
+    {
+        id: 2,
+        name:"Circulor abc",
+        price:'369kr'
+    },
+    {
+        id: 3,
+        name:"Gringo abc",
+        price:'299kr'
+    }
+]
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
@@ -15,7 +34,11 @@ function App() {
       <NavBar username={username} isAuthenticated={isAuthenticated} />
       <AppName />
       {isAuthenticated ? (
-        <AppLogin username={username} />
+          <div>
+              <AppLogin username={username} />
+              <CoffeeList coffees={coffees} />
+          </div>
+        
       ) : (
         <LoginForm
           username={username}
@@ -28,6 +51,22 @@ function App() {
       )}
     </>
   );
+}
+
+function CoffeeList({coffees}){
+    return (
+        <ul>
+        {coffees.forEach(coffee => {
+            console.log(coffee);
+            return <CoffeeView coffee={coffee} />
+                })}
+    </ul>)
+}
+
+function CoffeeView({coffee}) {
+    return (
+        <li><p>Name: {coffee.name}</p><p>Price: {coffee.price}</p></li>
+    )
 }
 
 export default App;
