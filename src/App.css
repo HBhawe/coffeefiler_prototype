@@ -5,6 +5,18 @@
   text-align: center;
 }
 
+:root {
+    --color-primary: #6741d9;
+    --color-primary-light: #7950f2;
+    --color-text: #dee2e6;
+    --color-text-dark: #adb5bd;
+    --color-background-100: #343a40;
+    --color-background-500: #2b3035;
+    --color-background-900: #212529;
+    --color-red: #fa5252;
+    --color-red-dark: #e03131;
+}
+
 .form{
     display: grid;
     gap: 5px;
@@ -43,4 +55,35 @@ label{
 
 input{
     font-family: monospace, sans-serif;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.list {
+    list-style: none;
+    padding: 0.8rem 0;
+    overflow: scroll;
+}
+
+.list li {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 2.4rem;
+    font-size: 1.6rem;
+    align-items: center;
+    padding: 1.6rem 3.2rem;
+    border-bottom: 1px solid var(--color-background-100);
+}
+
+.list.list-coffees li {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.list.list-coffees li:hover {
+    background-color: var(--color-background-100);
 }

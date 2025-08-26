@@ -1,28 +1,33 @@
-import {useState} from "react";
+import { useState } from "react";
 import "../App.css";
-import {LoginForm} from "./LoginForm.jsx";
-import {AppName} from "./AppName.jsx";
-import {AppLogin} from "./AppLogin.jsx";
-import {NavBar} from "./NavBar.jsx";
-
+import { LoginForm } from "./LoginForm.jsx";
+import { AppLogin } from "./AppLogin.jsx";
+import { NavBar } from "./NavBar.jsx";
+import { CoffeeList } from "./CoffeeList.jsx";
 
 const coffees = [
-    {
-        id: 1,
-        name:"Tanat abc",
-        price:'399kr'
-    },
-    {
-        id: 2,
-        name:"Circulor abc",
-        price:'369kr'
-    },
-    {
-        id: 3,
-        name:"Gringo abc",
-        price:'299kr'
-    }
-]
+  {
+    id: 1,
+    brand: "Tanat",
+    name: "ABC",
+    price: "399kr",
+    addedBy: "harshal",
+  },
+  {
+    id: 2,
+    brand: "Circulor",
+    name: "Test",
+    price: "369kr",
+    addedBy: "harshal",
+  },
+  {
+    id: 3,
+    brand: "Gringo",
+    name: "Ringo",
+    price: "299kr",
+    addedBy: "harshal",
+  },
+];
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -32,13 +37,11 @@ function App() {
   return (
     <>
       <NavBar username={username} isAuthenticated={isAuthenticated} />
-      <AppName />
       {isAuthenticated ? (
-          <div>
-              <AppLogin username={username} />
-              <CoffeeList coffees={coffees} />
-          </div>
-        
+        <div>
+          <AppLogin username={username} />
+          <CoffeeList coffees={coffees} />
+        </div>
       ) : (
         <LoginForm
           username={username}
@@ -51,22 +54,6 @@ function App() {
       )}
     </>
   );
-}
-
-function CoffeeList({coffees}){
-    return (
-        <ul>
-        {coffees.forEach(coffee => {
-            console.log(coffee);
-            return <CoffeeView coffee={coffee} />
-                })}
-    </ul>)
-}
-
-function CoffeeView({coffee}) {
-    return (
-        <li><p>Name: {coffee.name}</p><p>Price: {coffee.price}</p></li>
-    )
 }
 
 export default App;
